@@ -1,0 +1,129 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.chaitanya.remotesearch"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionName "1.0.0"
+        versionCode 1
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled true
+    }
+
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+
+    testOptions {
+        // This has been put so that the default android components like Log we don't need to mock
+        // Instead it will return true or null by default
+        unitTests.returnDefaultValues = true
+        unitTests.all {
+            setIgnoreFailures(true)
+        }
+    }
+
+}
+
+dependencies {
+    implementation project(':domain')
+    implementation project(':data')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "androidx.constraintlayout:constraintlayout:$constraint_version"
+    implementation 'com.google.android.material:material:1.1.0'
+
+    /* Dagger2 - We are going to use dagger.android which includes
+    * support for Activity and fragment injection so we need to include
+    * the following dependencies */
+    implementation "com.google.dagger:dagger-android:$dagger_version"
+    implementation "com.google.dagger:dagger-android-support:$dagger_version"
+    implementation "androidx.constraintlayout:constraintlayout:$constraint_version"
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    kapt "com.google.dagger:dagger-android-processor:$dagger_version"
+
+    /* Dagger2 - default dependency */
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion"
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_Logging_Version"
+    implementation "com.squareup.okio:okio:$okio_version"
+
+    //RxJava
+    implementation "io.reactivex.rxjava2:rxjava:$rx_java2_version"
+    implementation "io.reactivex.rxjava2:rxandroid:$rx_android2_version"
+    implementation "io.reactivex.rxjava2:rxkotlin:$rx_kotlin_version"
+
+    implementation "com.jakewharton.rxbinding2:rxbinding:2.0.0"
+
+    // android architecture component
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion"
+
+    // Timber for Logging
+    implementation "com.jakewharton.timber:timber:$timber_version"
+
+    //Data-binding collection adapter
+    implementation "me.tatarka.bindingcollectionadapter2:bindingcollectionadapter:$binding_collection_adapter_version"
+    implementation "me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-recyclerview:$binding_collection_adapter_version"
+
+    // Secure Shared Preference
+    implementation "com.scottyab:secure-preferences-lib:$secure_preferences_version"
+
+
+    // Test Dependencies
+    testImplementation "junit:junit:$junit_version"
+    androidTestImplementation "androidx.test:runner:$test_runner_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
+    testImplementation "org.mockito:mockito-core:2.19.0"
+    testImplementation 'org.mockito:mockito-inline:2.13.0'
+
+    // Unit tests
+    // Required -- JUnit 4 framework
+    testImplementation "junit:junit:$junit_version"
+    testImplementation "androidx.arch.core:core-testing:$core_testing_version"
+    // Optional -- Mockito framework
+    testImplementation "org.mockito:mockito-core:$mockito_version"
+    testImplementation "io.kotlintest:kotlintest:$kotlin_test_version"
+    testImplementation "org.powermock:powermock-module-junit4-rule:$powermock_version"
+    testImplementation "org.powermock:powermock-core:$powermock_version"
+    testImplementation "org.powermock:powermock-module-junit4:$powermock_version"
+    testImplementation "org.powermock:powermock-api-mockito2:$powermock_version"
+    testImplementation "com.squareup.okhttp3:mockwebserver:$mock_webserver_version"
+    androidTestImplementation "androidx.test:runner:$test_runner_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
+    androidTestImplementation "androidx.test:rules:$test_rules_version"
+    implementation "androidx.test.espresso.idling:idling-concurrent:$idling_resource_version"
+    implementation "androidx.test.espresso:espresso-idling-resource:$idling_resource_version"
+
+    implementation 'com.google.code.findbugs:jsr305:3.0.2'
+}

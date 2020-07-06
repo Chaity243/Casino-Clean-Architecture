@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+    <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivPlaceholderImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_12sdp"
+            tools:src="@drawable/ic_launcher_background" />
+
+    <TextView
+            android:id="@+id/tvPlaceholderText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:fontFamily="sans-serif"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="8sp"
+            android:textColor="#666666"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            tools:text="Oops! No Cars available for selected filters. Try\nagain with fewer filters" />
+</LinearLayout>
