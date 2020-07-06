@@ -2,6 +2,7 @@ package com.chaitanya.casino
 
 import android.content.Context
 import com.chaitanya.casino.di.DaggerApplicationComponent
+import com.facebook.ads.AudienceNetworkAds
 import dagger.android.AndroidInjector
 import dagger.android.support.DaggerApplication
 import timber.log.Timber
@@ -36,5 +37,9 @@ class App : DaggerApplication() {
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }
+
+        // Initialize the Audience Network SDK
+        AudienceNetworkAds.initialize(this)
+
     }
 }

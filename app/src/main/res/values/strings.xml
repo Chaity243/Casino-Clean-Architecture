@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Casino Clean Architecture </string>
     <string name="hint_search">Search here…</string>
+    <string name="txtBtnRotate">Rotate</string>
 
 
     <!--Spinning starts  -->

@@ -43,6 +43,9 @@ buildscript {
         // Classpath version
         google_services_version = '4.3.3'
         android_tools_version = '3.5.3'
+
+        //Facebook Audience Network SDK Version
+        network_sdk_version='5.+'
     }
 
     repositories {
@@ -51,7 +54,7 @@ buildscript {
     }
 
     dependencies {
-        classpath "com.android.tools.build:gradle:$android_tools_version"
+        classpath "com.android.tools.build:gradle:${android_tools_version}"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files

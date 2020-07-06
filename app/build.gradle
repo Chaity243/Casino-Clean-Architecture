@@ -4,13 +4,13 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    compileSdkVersion 30
+    buildToolsVersion '30.0.0'
 
     defaultConfig {
         applicationId "com.chaitanya.remotesearch"
         minSdkVersion 21
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionName "1.0.0"
         versionCode 1
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -63,6 +63,7 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:$constraint_version"
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
     kapt "com.google.dagger:dagger-android-processor:$dagger_version"
 
     /* Dagger2 - default dependency */
@@ -98,6 +99,9 @@ dependencies {
 
     // Secure Shared Preference
     implementation "com.scottyab:secure-preferences-lib:$secure_preferences_version"
+
+    //Facebook Audience Network SDK
+    implementation "com.facebook.android:audience-network-sdk:$network_sdk_version"
 
 
     // Test Dependencies
